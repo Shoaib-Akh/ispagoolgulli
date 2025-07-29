@@ -233,6 +233,178 @@
             margin-top: 10px;
         }
         
+        /* Animal Eating Animation */
+        .animal-eating {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            height: 260px; /* Increased to accommodate new elements */
+        }
+        
+        .animal {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('https://cdn-icons-png.flaticon.com/512/151/151885.png'); /* Clear goat icon */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: eatThenFatten 6s infinite;
+            z-index: 2;
+        }
+        
+        @keyframes eatThenFatten {
+            0% {
+                transform: translateX(-50%) translateY(0) rotate(-12deg) scale(1);
+                filter: brightness(100%) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            }
+            25% {
+                transform: translateX(-50%) translateY(-5px) rotate(12deg) scale(1);
+                filter: brightness(100%) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            }
+            50% {
+                transform: translateX(-50%) translateY(0) rotate(-12deg) scale(1);
+                filter: brightness(100%) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            }
+            60% {
+                transform: translateX(-50%) translateY(0) rotate(0deg) scale(1.2);
+                filter: brightness(110%) drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            }
+            100% {
+                transform: translateX(-50%) translateY(0) rotate(0deg) scale(1.6); /* Fully fattened */
+                filter: brightness(120%) drop-shadow(0 6px 8px rgba(0,0,0,0.4));
+            }
+        }
+        
+        .food-bowl {
+            position: absolute;
+            width: 110px;
+            height: 60px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2832/2832732.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: bowlShake 1.2s infinite;
+            z-index: 1;
+        }
+        
+        @keyframes bowlShake {
+            0% {
+                transform: translateX(-50%) rotate(-3deg);
+            }
+            50% {
+                transform: translateX(-50%) rotate(3deg);
+            }
+            100% {
+                transform: translateX(-50%) rotate(-3deg);
+            }
+        }
+        
+        .food-particle {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background-color: #6B4E31;
+            border-radius: 50%;
+            bottom: 70px;
+            left: 45%;
+            opacity: 0;
+            z-index: 0;
+        }
+        
+        .food-particle:nth-child(1) {
+            animation: foodFly 1.8s infinite;
+        }
+        .food-particle:nth-child(2) {
+            animation: foodFly 1.8s infinite 0.5s;
+        }
+        .food-particle:nth-child(3) {
+            animation: foodFly 1.8s infinite 1s;
+        }
+        
+        @keyframes foodFly {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                transform: translate(-60px, -140px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-70px, -150px);
+                opacity: 0;
+            }
+        }
+        
+        .chew-effect {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            bottom: 100px; /* Near goat's mouth */
+            left: 40%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, rgba(255, 215, 0, 0) 70%); /* Sparkle effect */
+            opacity: 0;
+            animation: chewSparkle 1.8s infinite;
+            z-index: 3;
+        }
+        
+        @keyframes chewSparkle {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .weight-gain {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            bottom: 50px; /* Near goat's belly */
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.5) 0%, rgba(76, 175, 80, 0) 70%); /* Green glow */
+            opacity: 0;
+            animation: gainWeight 6s infinite;
+            z-index: 1;
+        }
+        
+        @keyframes gainWeight {
+            0% {
+                transform: translateX(-50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(-50%) scale(0);
+                opacity: 0;
+            }
+            60% {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateX(-50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
         /* Benefits Section */
         .benefits {
             background-color: #fff;
@@ -459,86 +631,6 @@
         
         .price-card:hover .price::after {
             transform: scaleX(1);
-        }
-        
-        /* Animal Eating Animation */
-        .animal-eating {
-            text-align: center;
-            margin: 40px 0;
-            position: relative;
-            height: 200px;
-        }
-        
-       .animal {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-image: url('https://cdn-icons-png.flaticon.com/512/3069/3069172.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            animation: eatThenFatten 4s infinite;
-        }
-        
-        
-        @keyframes chew {
-            0% {
-                transform: translateX(-50%) rotate(-5deg);
-            }
-            100% {
-                transform: translateX(-50%) rotate(5deg);
-            }
-        }
-        
-        .food-bowl {
-            position: absolute;
-            width: 100px;
-            height: 50px;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-image: url('https://cdn-icons-png.flaticon.com/512/2832/2832732.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        
-        .food-particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #8B4513;
-            border-radius: 50%;
-            bottom: 50px;
-            left: 50%;
-            opacity: 0;
-        }
-        
-        .food-particle:nth-child(1) {
-            animation: foodFly 2s infinite;
-        }
-        .food-particle:nth-child(2) {
-            animation: foodFly 2s infinite 0.5s;
-        }
-        .food-particle:nth-child(3) {
-            animation: foodFly 2s infinite 1s;
-        }
-        
-        @keyframes foodFly {
-            0% {
-                transform: translate(0, 0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            100% {
-                transform: translate(-30px, -100px);
-                opacity: 0;
-            }
         }
         
         /* CTA Section */
@@ -843,13 +935,15 @@
             <p class="urdu-text">بکریوں، بھیڑوں اور گایوں کا وزن تیزی سے بڑھانے کے لیے فائبر سے بھرپور، ہاضمہ دوست چارہ</p>
             
             <!-- Animal Eating Animation -->
-          <div class="animal-eating">
+            <!-- <div class="animal-eating">
                 <div class="animal"></div>
                 <div class="food-bowl"></div>
                 <div class="food-particle"></div>
                 <div class="food-particle"></div>
                 <div class="food-particle"></div>
-            </div>
+                <div class="chew-effect"></div>
+                <div class="weight-gain"></div>
+            </div> -->
             
             <div class="hero-images">
                 <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fat goat eating Ispaghol Guli" class="hero-image">
@@ -988,7 +1082,7 @@
                 <p class="urdu-text">بڑی مقدار میں آرڈر پر ہول سیل رعایت دستیاب</p>
                 <p>Delivery available across all of Pakistan</p>
                 <p class="urdu-text">پورے پاکستان میں ڈیلیوری دستیاب</p>
-                <a href="https://wa.me/923157853229" class="btn">Order Now</a>
+                <a href="#contact" class="btn">Order Now</a>
                 <p class="urdu-text">ابھی آرڈر کریں</p>
             </div>
         </div>
@@ -999,8 +1093,8 @@
         <div class="cta-content">
             <h2>Limited Stock Available!</h2>
             <p class="urdu-text">محدود اسٹاک دستیاب!</p>
-            <p>Don't miss out on the best natural weight gain supplement for your livestock. Order now to prepare for Qurbani 2025!</p>
-            <p class="urdu-text">اپنے مویشیوں کے لیے بہترین قدرتی وزن بڑھانے والے سپلیمنٹ سے محروم نہ ہوں۔ قربانی 2025 کی تیاری کے لیے ابھی آرڈر کریں!</p>
+            <p>Don't miss out on the best natural weight gain supplement for your livestock. Order now to prepare for Qurbani 2026!</p>
+            <p class="urdu-text">اپنے مویشیوں کے لیے بہترین قدرتی وزن بڑھانے والے سپلیمنٹ سے محروم نہ ہوں۔ قربانی 2026 کی تیاری کے لیے ابھی آرڈر کریں!</p>
             <span class="phone-number">📞 0315-7853229</span>
             <a href="https://wa.me/923157853229" class="btn">Chat on WhatsApp</a>
             <p class="urdu-text">واٹس ایپ پر بات کریں</p>
