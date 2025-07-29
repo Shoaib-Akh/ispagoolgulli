@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Enhance livestock growth with 100% natural Ispaghol Guli! Rich in fiber, fat, and protein, this supplement helps goats, cattle, and sheep gain healthy weight in just 7–8 days. Ideal for Qurbani 2025!">
     <title>Ispaghol Guli – Boost Animal Weight Naturally | High-Fiber Feed for Livestock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Analytics 4 Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZN6NBT10PK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZN6NBT10PK');
+    </script>
+     
     <style>
         /* Global Styles */
         * {
@@ -40,12 +50,40 @@
             text-decoration: none;
             border-radius: 4px;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: all 0.5s ease;
             margin-top: 15px;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
             background-color: #3e8e41;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        
+        .btn::after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            border-radius: 4px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all 0.4s;
+            background-color: #4CAF50;
+        }
+        
+        .btn:hover::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
         }
         
         .section {
@@ -66,6 +104,16 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
         
         .header-container {
@@ -76,13 +124,12 @@
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #4CAF50;
+            height: 80px;
+            transition: all 0.3s ease;
         }
         
-        .logo span {
-            color: #2c5e1a;
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         nav ul {
@@ -92,6 +139,7 @@
         
         nav ul li {
             margin-left: 20px;
+            position: relative;
         }
         
         nav ul li a {
@@ -99,6 +147,22 @@
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 5px 0;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #4CAF50;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
         }
         
         nav ul li a:hover {
@@ -107,23 +171,66 @@
         
         /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1470114716159-e389f8712fda?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./images/bg.png');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 100px 0;
+            position: relative;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        .hero-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .hero-image {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .hero-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 30px;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .urdu-text {
+            font-family: 'Nafees Nastaleeq', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', sans-serif;
+            direction: rtl;
+            font-size: 1.1rem;
+            margin-top: 10px;
         }
         
         /* Benefits Section */
@@ -143,17 +250,37 @@
             border-radius: 8px;
             background-color: #f9f9f7;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            transition: all 0.5s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .benefit-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .benefit-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: #4CAF50;
+            display: inline-block;
+            transition: all 0.5s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            transform: rotate(360deg) scale(1.2);
         }
         
         .benefit-card h3 {
@@ -181,6 +308,24 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.5s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .step:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .step:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .step:nth-child(3) {
+            animation-delay: 0.6s;
         }
         
         .step-number {
@@ -194,6 +339,12 @@
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 20px;
+            transition: all 0.5s ease;
+        }
+        
+        .step:hover .step-number {
+            background-color: #2c5e1a;
+            transform: scale(1.2);
         }
         
         /* Testimonials */
@@ -212,11 +363,40 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.5s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .testimonial:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .testimonial:nth-child(3) {
+            animation-delay: 0.6s;
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: #4CAF50;
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
         }
         
         .testimonial-author {
@@ -237,12 +417,128 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             max-width: 500px;
+            transition: all 0.5s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            50% {
+                box-shadow: 0 5px 30px rgba(76, 175, 80, 0.4);
+            }
+            100% {
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+        }
+        
+        .price-card:hover {
+            transform: scale(1.03);
         }
         
         .price {
             font-size: 2.5rem;
             color: #4CAF50;
             margin: 20px 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .price::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4CAF50;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .price-card:hover .price::after {
+            transform: scaleX(1);
+        }
+        
+        /* Animal Eating Animation */
+        .animal-eating {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            height: 200px;
+        }
+        
+       .animal {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('https://cdn-icons-png.flaticon.com/512/3069/3069172.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: eatThenFatten 4s infinite;
+        }
+        
+        
+        @keyframes chew {
+            0% {
+                transform: translateX(-50%) rotate(-5deg);
+            }
+            100% {
+                transform: translateX(-50%) rotate(5deg);
+            }
+        }
+        
+        .food-bowl {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2832/2832732.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .food-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #8B4513;
+            border-radius: 50%;
+            bottom: 50px;
+            left: 50%;
+            opacity: 0;
+        }
+        
+        .food-particle:nth-child(1) {
+            animation: foodFly 2s infinite;
+        }
+        .food-particle:nth-child(2) {
+            animation: foodFly 2s infinite 0.5s;
+        }
+        .food-particle:nth-child(3) {
+            animation: foodFly 2s infinite 1s;
+        }
+        
+        @keyframes foodFly {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-30px, -100px);
+                opacity: 0;
+            }
         }
         
         /* CTA Section */
@@ -251,11 +547,57 @@
             color: white;
             text-align: center;
             padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: pulseCircle 4s infinite;
+            z-index: 1;
+        }
+        
+        @keyframes pulseCircle {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+            70% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
         }
         
         .cta h2 {
             font-size: 2rem;
             margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
         }
         
         .cta p {
@@ -280,6 +622,16 @@
             font-size: 1.5rem;
             margin: 20px 0;
             display: block;
+            animation: shake 0.5s infinite alternate;
+        }
+        
+        @keyframes shake {
+            0% {
+                transform: rotate(-5deg);
+            }
+            100% {
+                transform: rotate(5deg);
+            }
         }
         
         /* FAQ */
@@ -291,6 +643,11 @@
             margin-bottom: 20px;
             border-bottom: 1px solid #eee;
             padding-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: #4CAF50;
         }
         
         .faq-question {
@@ -298,6 +655,33 @@
             color: #2c5e1a;
             margin-bottom: 10px;
             font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .faq-question::before {
+            content: '+';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            color: #4CAF50;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::before {
+            content: '-';
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
         }
         
         /* Footer */
@@ -317,6 +701,18 @@
         .footer-column h3 {
             margin-bottom: 20px;
             font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4CAF50;
         }
         
         .footer-column ul {
@@ -325,6 +721,11 @@
         
         .footer-column ul li {
             margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li:hover {
+            transform: translateX(5px);
         }
         
         .footer-column ul li a {
@@ -345,6 +746,12 @@
         .social-links a {
             color: white;
             font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: #4CAF50;
         }
         
         .copyright {
@@ -367,6 +774,12 @@
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .hashtag:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
         }
         
         /* Responsive */
@@ -377,6 +790,8 @@
             
             nav ul {
                 margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             nav ul li {
@@ -387,8 +802,17 @@
                 font-size: 2rem;
             }
             
+            .hero-images {
+                flex-direction: column;
+                align-items: center;
+            }
+            
             .section {
                 padding: 40px 0;
+            }
+            
+            .price-card {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -397,7 +821,7 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">Ispaghol<span>Guli</span></div>
+            <img class="logo" src="./images/logo.png" alt="Ispaghol Guli Logo"/>
             <nav>
                 <ul>
                     <li><a href="#benefits">Benefits</a></li>
@@ -416,7 +840,24 @@
         <div class="container">
             <h1>Double Your Livestock's Weight Naturally with Ispaghol Guli!</h1>
             <p>A fiber-rich, digestive-friendly feed for rapid weight gain in goats, sheep, and cattle.</p>
-            <a href="#pricing" class="btn">Order Now – 40kg Bags Available!</a>
+            <p class="urdu-text">بکریوں، بھیڑوں اور گایوں کا وزن تیزی سے بڑھانے کے لیے فائبر سے بھرپور، ہاضمہ دوست چارہ</p>
+            
+            <!-- Animal Eating Animation -->
+          <div class="animal-eating">
+                <div class="animal"></div>
+                <div class="food-bowl"></div>
+                <div class="food-particle"></div>
+                <div class="food-particle"></div>
+                <div class="food-particle"></div>
+            </div>
+            
+            <div class="hero-images">
+                <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fat goat eating Ispaghol Guli" class="hero-image">
+                <img src="./images/photo-1560819400-434c188f63ef.png" alt="Fat cow eating Ispaghol Guli" class="hero-image">
+            </div>
+            
+            <a href="#pricing" class="btn animate__animated animate__pulse animate__infinite">Order Now – 40kg Bags Available!</a>
+            <p class="urdu-text">ابھی آرڈر کریں – 40 کلوگرام کے تھیلے دستیاب!</p>
         </div>
     </section>
 
@@ -424,26 +865,56 @@
     <section id="benefits" class="section benefits">
         <div class="container">
             <h2 class="section-title">Key Benefits</h2>
+            <p class="urdu-text" style="text-align: center; margin-bottom: 30px;">اہم فوائد</p>
+            
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-card" style="animation-delay: 0.1s;">
                     <div class="benefit-icon">🌿</div>
                     <h3>100% Natural</h3>
                     <p>Made from psyllium husk (اسپغول کی گلی) after dehisking. No artificial additives or chemicals.</p>
+                    <p class="urdu-text">اسپغول کی گلی سے تیار شدہ، مکمل طور پر قدرتی۔ کوئی مصنوعی اضافے یا کیمیکلز نہیں۔</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" style="animation-delay: 0.2s;">
                     <div class="benefit-icon">⚡</div>
                     <h3>Fast Results</h3>
                     <p>Noticeable weight gain in just 7–8 days. Perfect for Qurbani preparation.</p>
+                    <p class="urdu-text">صرف 7-8 دنوں میں واضح وزن میں اضافہ۔ قربانی کی تیاری کے لیے بہترین۔</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" style="animation-delay: 0.3s;">
                     <div class="benefit-icon">🐐</div>
                     <h3>Digestive Health</h3>
                     <p>Cool (ٹھنڈی تاثیر) and easy to digest. Promotes healthy gut function.</p>
+                    <p class="urdu-text">ٹھنڈی تاثیر والا اور ہضم کرنے میں آسان۔ صحت مند ہاضمے کو فروغ دیتا ہے۔</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" style="animation-delay: 0.4s;">
                     <div class="benefit-icon">💪</div>
                     <h3>Nutrient-Rich</h3>
                     <p>Packed with fiber, healthy fats, and protein for optimal animal growth.</p>
+                    <p class="urdu-text">فائبر، صحت مند چکنائی اور پروٹین سے بھرپور، جانوروں کی بہترین نشوونما کے لیے۔</p>
+                </div>
+                <div class="benefit-card" style="animation-delay: 0.5s;">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Cost Effective</h3>
+                    <p>Reduces overall feed costs as animals eat less fodder but gain more weight.</p>
+                    <p class="urdu-text">چارے کے اخراجات کم کرتا ہے کیونکہ جانور کم چارہ کھاتے ہیں لیکن زیادہ وزن بڑھاتے ہیں۔</p>
+                </div>
+                <div class="benefit-card" style="animation-delay: 0.6s;">
+                    <div class="benefit-icon">🔄</div>
+                    <h3>Improved Metabolism</h3>
+                    <p>Enhances nutrient absorption and metabolic rate for better growth.</p>
+                    <p class="urdu-text">غذائیت کی بہتر جذب اور میٹابولزم کو بہتر بناتا ہے۔</p>
+                </div>
+                <div class="benefit-card" style="animation-delay: 0.7s;">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Disease Prevention</h3>
+                    <p>Helps prevent digestive disorders and maintains overall animal health.</p>
+                    <p class="urdu-text">ہاضمے کے مسائل سے بچاتا ہے اور جانوروں کی مجموعی صحت برقرار رکھتا ہے۔</p>
+                </div>
+                <div class="benefit-card" style="animation-delay: 0.8s;">
+                    <div class="benefit-icon">🥛</div>
+                    <h3>Milk Production</h3>
+                    <p>Increases milk yield in dairy animals by improving their nutritional intake.</p>
+                    <p class="urdu-text">دودھ دینے والے جانوروں میں دودھ کی پیداوار بڑھاتا ہے۔</p>
                 </div>
             </div>
         </div>
@@ -453,21 +924,26 @@
     <section id="how-it-works" class="section how-it-works">
         <div class="container">
             <h2 class="section-title">How It Works</h2>
+            <p class="urdu-text" style="text-align: center; margin-bottom: 30px;">یہ کیسے کام کرتا ہے</p>
+            
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Mix with Feed</h3>
                     <p>Add Ispaghol Guli to your animal's regular feed according to recommended ratios.</p>
+                    <p class="urdu-text">تجویز کردہ تناسب کے مطابق اپنے جانوروں کے عام چارے میں اسپغول گلی ملا دیں۔</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Reduced Fodder Intake</h3>
                     <p>Animals consume less fodder due to high satiety from the fiber-rich supplement.</p>
+                    <p class="urdu-text">فائبر سے بھرپور ہونے کی وجہ سے جانور کم چارہ کھاتے ہیں۔</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Healthy Weight Gain</h3>
                     <p>Boosts metabolism and promotes muscle growth for healthy weight increase.</p>
+                    <p class="urdu-text">میٹابولزم کو بہتر بناتا ہے اور صحت مند وزن میں اضافہ کرتا ہے۔</p>
                 </div>
             </div>
         </div>
@@ -477,17 +953,22 @@
     <section id="testimonials" class="section testimonials">
         <div class="container">
             <h2 class="section-title">What Our Customers Say</h2>
+            <p class="urdu-text" style="text-align: center; margin-bottom: 30px;">ہمارے گاہکوں کے تاثرات</p>
+            
             <div class="testimonial-grid">
                 <div class="testimonial">
                     <p class="testimonial-text">"My goats gained 10kg in just 2 weeks! This product is amazing and perfect for Qurbani preparation."</p>
+                    <p class="urdu-text">"میری بکریوں نے صرف 2 ہفتوں میں 10 کلو وزن بڑھا لیا! یہ مصنوعات قربانی کی تیاری کے لیے بہترین ہے۔"</p>
                     <p class="testimonial-author">– Ahmed, Faisalabad</p>
                 </div>
                 <div class="testimonial">
                     <p class="testimonial-text">"I've tried many supplements but Ispaghol Guli gave visible results faster than anything else. My sheep look healthier too."</p>
+                    <p class="urdu-text">"میں نے بہت سے سپلیمنٹس آزمائے ہیں لیکن اسپغول گلی نے سب سے تیزی سے نتائج دیے۔ میری بھیڑیں بھی زیادہ صحت مند نظر آتی ہیں۔"</p>
                     <p class="testimonial-author">– Muhammad, Lahore</p>
                 </div>
                 <div class="testimonial">
                     <p class="testimonial-text">"As a dairy farmer, I appreciate how this improved both weight and milk production in my cattle. Highly recommended!"</p>
+                    <p class="urdu-text">"ایک ڈیری فارمر کے طور پر، میں اس بات کی تعریف کرتا ہوں کہ اس نے میرے مویشیوں کے وزن اور دودھ کی پیداوار دونوں کو کیسے بہتر بنایا۔ انتہائی سفارش کردہ!"</p>
                     <p class="testimonial-author">– Fatima, Multan</p>
                 </div>
             </div>
@@ -498,23 +979,31 @@
     <section id="pricing" class="section pricing">
         <div class="container">
             <h2 class="section-title">Pricing & Packaging</h2>
+            <p class="urdu-text" style="text-align: center; margin-bottom: 30px;">قیمت اور پیکجنگ</p>
+            
             <div class="price-card">
                 <h3>40kg Bag</h3>
                 <div class="price">Rs. 4,999</div>
                 <p>Wholesale discounts available for bulk orders</p>
+                <p class="urdu-text">بڑی مقدار میں آرڈر پر ہول سیل رعایت دستیاب</p>
                 <p>Delivery available across all of Pakistan</p>
-                <a href="https://wa.me/03157853229" class="btn">Order Now</a>
+                <p class="urdu-text">پورے پاکستان میں ڈیلیوری دستیاب</p>
+                <a href="https://wa.me/923157853229" class="btn">Order Now</a>
+                <p class="urdu-text">ابھی آرڈر کریں</p>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
-        <div class="container">
+        <div class="cta-content">
             <h2>Limited Stock Available!</h2>
+            <p class="urdu-text">محدود اسٹاک دستیاب!</p>
             <p>Don't miss out on the best natural weight gain supplement for your livestock. Order now to prepare for Qurbani 2025!</p>
+            <p class="urdu-text">اپنے مویشیوں کے لیے بہترین قدرتی وزن بڑھانے والے سپلیمنٹ سے محروم نہ ہوں۔ قربانی 2025 کی تیاری کے لیے ابھی آرڈر کریں!</p>
             <span class="phone-number">📞 0315-7853229</span>
             <a href="https://wa.me/923157853229" class="btn">Chat on WhatsApp</a>
+            <p class="urdu-text">واٹس ایپ پر بات کریں</p>
         </div>
     </section>
 
@@ -522,21 +1011,27 @@
     <section id="faq" class="section faq">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="urdu-text" style="text-align: center; margin-bottom: 30px;">اکثر پوچھے گئے سوالات</p>
+            
             <div class="faq-item">
                 <div class="faq-question">Is it safe for all animals?</div>
                 <p>Yes, Ispaghol Guli is completely safe and suitable for goats, sheep, and cattle of all ages.</p>
+                <p class="urdu-text">جی ہاں، اسپغول گلی تمام عمر کے بکریوں، بھیڑوں اور گایوں کے لیے مکمل طور پر محفوظ اور موزوں ہے۔</p>
             </div>
             <div class="faq-item">
                 <div class="faq-question">How soon can I see results?</div>
                 <p>Most customers report visible weight gain in their animals within 7–8 days of regular use.</p>
+                <p class="urdu-text">زیادہ تر گاہکوں کو 7-8 دنوں کے باقاعدہ استعمال کے بعد اپنے جانوروں میں واضح وزن میں اضافہ نظر آتا ہے۔</p>
             </div>
             <div class="faq-item">
                 <div class="faq-question">What's the recommended dosage?</div>
                 <p>Mix 1 part Ispaghol Guli with 3 parts regular feed. Adjust slightly based on animal size and appetite.</p>
+                <p class="urdu-text">1 حصہ اسپغول گلی کو 3 حصوں عام چارے میں ملا دیں۔ جانور کے سائز اور بھوک کے مطابق تھوڑا سا ایڈجسٹ کریں۔</p>
             </div>
             <div class="faq-item">
                 <div class="faq-question">Do you offer delivery?</div>
                 <p>Yes, we deliver across Pakistan. Contact us for specific delivery charges to your area.</p>
+                <p class="urdu-text">جی ہاں، ہم پورے پاکستان میں ڈیلیوری کرتے ہیں۔ آپ کے علاقے کے لیے مخصوص ڈیلیوری چارجز کے لیے ہم سے رابطہ کریں۔</p>
             </div>
         </div>
     </section>
@@ -548,6 +1043,7 @@
                 <div class="footer-column">
                     <h3>Ispaghol Guli</h3>
                     <p>100% natural weight gain supplement for livestock. Helping farmers across Pakistan since 2015.</p>
+                    <p class="urdu-text">مویشیوں کے لیے 100% قدرتی وزن بڑھانے والا سپلیمنٹ۔ 2015 سے پاکستان بھر کے کسانوں کی مدد کر رہا ہے۔</p>
                     <div class="hashtags">
                         <span class="hashtag">#IspagholGuli</span>
                         <span class="hashtag">#GoatWeightGain</span>
@@ -570,17 +1066,18 @@
                     <ul>
                         <li>📞 Phone: 0315-7853229</li>
                         <li>📱 WhatsApp: 0315-7853229</li>
-                        <li>📧 Email: info@ispagholguli.com</li>
+                        <li>📧 Email: ispagholgulli@gmail.com</li>
                     </ul>
                     <div class="social-links">
-                        <a href="#">FB</a>
-                        <a href="#">IG</a>
-                        <a href="#">YT</a>
+                        <a href="https://www.facebook.com/paniSePaakGulli">FB</a>
+                        <a href="https://www.facebook.com/paniSePaakGulli">IG</a>
+                        <a href="https://www.facebook.com/paniSePaakGulli">YT</a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Ispaghol Guli. All Rights Reserved.</p>
+                <p class="urdu-text">تمام حقوق محفوظ ہیں</p>
             </div>
         </div>
     </footer>
